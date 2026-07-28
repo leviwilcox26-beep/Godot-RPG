@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c1a5vy7jo53qv"]
+
+[ext_resource type="Script" uid="uid://belvbs28svpxp" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="Control" type="Control" unique_id=327429016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=697650016]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -33.0
+offset_right = 46.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2068220517]
+z_index = 2
+layout_mode = 2
+text = "New Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=932475150]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

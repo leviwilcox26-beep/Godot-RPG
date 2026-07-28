@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://b803criqoyv1q"]
+
+[ext_resource type="Script" uid="uid://ckybr44qer1p2" path="res://scripts/resource scripts/WeaponData.gd" id="1_0w5r0"]
+[ext_resource type="Texture2D" uid="uid://ds6cft1dla23x" path="res://art/sword.aseprite" id="2_t8t18"]
+
+[resource]
+script = ExtResource("1_0w5r0")
+texture = ExtResource("2_t8t18")
+hitbox = Vector2(180, 180)
+melee = true
+damage = 20
+speed = 10

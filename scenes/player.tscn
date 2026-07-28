@@ -1,0 +1,446 @@
+[gd_scene format=4 uid="uid://bvh7dml4335n7"]
+
+[ext_resource type="Script" uid="uid://blw2d3k7mgwdk" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://bce2r5cm1yspp" path="res://scripts/weapon_controller.gd" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://dffqr28nqol5m" path="res://scripts/weapon_hitbox.gd" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://bdxyvptfyxsfl" path="res://scripts/weapon_visual.gd" id="3_qlg0r"]
+[ext_resource type="Resource" uid="uid://b803criqoyv1q" path="res://resources/weapons/sword.tres" id="3_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://2qa4hq3cygqb" path="res://scenes/game_ui.tscn" id="6_tuyoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(8, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qhqgy"]
+_data = PackedByteArray("AAADAAUAAAABAAAAYAAAAEAAAABKAgAAUklGRkICAABXRUJQVlA4TDYCAAAvX8APEFegIJIN6uppqJoOfwKooZiRJKhFhmD+i7tOS7ICl5mASZaDkxIQ0SjGsokCgiL/RwvA/38TQJcCbHW0zVUdSzwg1dr2xnE+t5n1oDXcRT46ewEuLEjpCatKYX2OoZloen6YnmiRw2Jdpmb8/R5XGtF/Bm7bNtLtzd4zsK3JuQ13z7leQ/c9zeXS1Njt9Bq7Xe+g9SgxmvVIy1otqz9mNbf9+sz1FQdv7nM80wpp6rLmf5650CWL93+C+9Wnrirq8H+oY57XHcuCuaqWbNyaA8DXVCwYLHC393ndobSMIOVaOdYqXrJuf00tojpuGkKMfZa3IdwFzSrjBuzXeNlhCm9F7iiJ/C94b0XAwkcR6bLqDlpXRE6guzbZhcgM3PF+DYeUNPNeyow7zBqOGc2aaygz1VGyhqaNUZnR2inN9arM6BbAq4y6gOd0HGnB6HnGWUBJuwaAZxWXadccaBzdpp43adhOjVjtWtkaHdXpnutt2OGc26zjXqp3AB2LYn3Ho5U0RyzWd9iV/644FrGlOjq15j7Hs3rcsYjnLc1xpdbce/8nuF99ANyxLAYtzTGtlyMVwrIAFAcGqiO1Mn2tigB3BLRUx1RzxKJxHa1FVOqfoqU4puwAlWMQC80BNqnZr2dng8G/gjlCqBbumE6p461IC1PFgVPNhRGrKyIn2GXHxXuRcqMOY2S2UcfQtDEqsw06jAHwaoOOoUGq3KDDtG0VGjsoO/V8k452rWwDjoM0AQ==")
+size_override = Vector2(96, 64)
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ur7pv"]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10082557, 0.2025056, 0.30333117, 0.40244785, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(38, 22), Vector2(11, 12.999998), Vector2(11, 13), Vector2(52, 13), Vector2(54, -32), Vector2(11, 12.999998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10082557, 0.30333117, 0.40244785, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1.2217305, 2.6633725, 0.88313663, -0.7644542, 2.6633725]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "swing_down"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.1415927]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.23333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "swing_left"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-75, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707964, 1.5707964]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "swing_right"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(35, 15), Vector2(51, -40)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0471976, -0.7033677]
+}
+
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "swing_up"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.1415927]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponController/WeaponVisual/WeaponPivot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"RESET": SubResource("Animation_qlg0r"),
+&"default": SubResource("Animation_ur7pv"),
+&"swing_down": SubResource("Animation_dqkch"),
+&"swing_left": SubResource("Animation_tuyoq"),
+&"swing_right": SubResource("Animation_fjrip"),
+&"swing_up": SubResource("Animation_smehm")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1532699090 groups=["player"]]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1754291400]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="DashLengthTimer" type="Timer" parent="." unique_id=1986966710]
+wait_time = 0.3
+one_shot = true
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=770307428]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=411935235]
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=2143663996]
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1200662775]
+visible = false
+offset_left = -82.0
+offset_top = -112.0
+offset_right = 83.0
+offset_bottom = -85.0
+show_percentage = false
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=1230979799]
+script = ExtResource("2_qhqgy")
+weapon_data = ExtResource("3_tuyoq")
+
+[node name="WeaponVisual" type="Node2D" parent="WeaponController" unique_id=983032192]
+script = ExtResource("3_qlg0r")
+
+[node name="WeaponPivot" type="Node2D" parent="WeaponController/WeaponVisual" unique_id=254690453]
+visible = false
+position = Vector2(0, 75)
+scale = Vector2(-1, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponController/WeaponVisual/WeaponPivot" unique_id=1221141886]
+position = Vector2(-4.47166, -0.06516969)
+
+[node name="WeaponHitbox" type="Area2D" parent="WeaponController" unique_id=313908267]
+script = ExtResource("3_dqkch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponController/WeaponHitbox" unique_id=1866331193]
+position = Vector2(7, 8)
+shape = SubResource("CapsuleShape2D_3vyb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1215406184]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_qhqgy")
+hframes = 3
+vframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://art/Sprite-0001.aseprite",
+"source_uid": 6582671982199876169
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1933599f36d992a1f6953e31e32eff79"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=701076955]
+libraries/ = SubResource("AnimationLibrary_qlg0r")
+
+[node name="CanvasLayer" parent="." unique_id=852685609 instance=ExtResource("6_tuyoq")]
+follow_viewport_enabled = false
+
+[connection signal="timeout" from="DashLengthTimer" to="." method="_on_dash_length_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="WeaponController/WeaponHitbox" to="WeaponController/WeaponHitbox" method="_on_body_entered"]

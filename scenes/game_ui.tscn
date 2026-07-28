@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://2qa4hq3cygqb"]
+
+[ext_resource type="Script" uid="uid://y7r2rmb2o4xq" path="res://scripts/game_ui_controller.gd" id="1_rns2u"]
+[ext_resource type="PackedScene" uid="uid://dhovs4hr1g7wf" path="res://scenes/luminite_tablet.tscn" id="2_u001w"]
+
+[node name="GameUI" type="CanvasLayer" unique_id=852685609]
+follow_viewport_enabled = true
+
+[node name="GameUIController" type="Control" parent="." unique_id=1403258157]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rns2u")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameUIController" unique_id=636691586]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 130.0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="GameUIController/MarginContainer" unique_id=75010345]
+layout_mode = 2
+text = "Luminite Tablet"
+
+[node name="LuminiteTablet" parent="GameUIController" unique_id=1535923469 instance=ExtResource("2_u001w")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="GameUIController/MarginContainer/Button" to="GameUIController" method="_on_button_pressed"]

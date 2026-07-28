@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b1vqovklo12sa"]
+
+[ext_resource type="Script" uid="uid://0c21rm8f7qpc" path="res://scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="PackedScene" uid="uid://d1b6u8ijilqhb" path="res://scenes/autoload/scene_transition.tscn" id="2_sa3yf"]
+
+[node name="TitleScreen" type="Control" unique_id=391045755]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1367870144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1172399211]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -7.0
+offset_right = 0.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="SceneTransition" parent="." unique_id=2074756383 instance=ExtResource("2_sa3yf")]

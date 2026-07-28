@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bu524imp31igg"]
+
+[ext_resource type="Texture2D" uid="uid://lkt01o5g7qf5" path="res://icon.svg" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://cmkcpqqm7bsx5" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(126, 125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 550.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1596586036 groups=["enemies"]]
+script = ExtResource("1_md0e3")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1820949362]
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984750811]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=1847941654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=2084072119]
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=729396101]
+visible = false
+offset_left = -82.0
+offset_top = -112.0
+offset_right = 83.0
+offset_bottom = -85.0
+show_percentage = false
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
